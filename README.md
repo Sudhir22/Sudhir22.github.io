@@ -1,2 +1,2 @@
-# sudhir22.github.io
+# Sudhir22.github.io
 Personal Website
