@@ -6,166 +6,69 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-
-body {font-family: Arial;}
-
-​
-
-/* Style the tab */
-
-.tab {
-
-  overflow: hidden;
-
-  border: 1px solid #ccc;
-
-  background-color: #f1f1f1;
-
-}
-
-​
-
-/* Style the buttons inside the tab */
-
-.tab button {
-
-  background-color: inherit;
-
-  float: left;
-
-  border: none;
-
-  outline: none;
-
-  cursor: pointer;
-
-  padding: 14px 16px;
-
-  transition: 0.3s;
-
-  font-size: 17px;
-
-}
-
-​
-
-/* Change background color of buttons on hover */
-
-.tab button:hover {
-
-  background-color: #ddd;
-
-}
-
-​
-
-/* Create an active/current tablink class */
-
-.tab button.active {
-
-  background-color: #ccc;
-
-}
-
-​
-
-/* Style the tab content */
-
-.tabcontent {
-
-  display: none;
-
-  padding: 6px 12px;
-
-  border: 1px solid #ccc;
-
-  border-top: none;
-
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 
 <body>
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button tablink w3-red" onclick="openCity(event, 'Home')" id="defaultOpen">Home</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Projects')">Projects</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Publciations')">Publications</button>
+</div>
 
-​
+​<div id="Home" class="w3-container w3-border city">
 
-<h2>Tabs</h2>
+  <h4>Introduction</h4>
 
-<p>Click on the buttons inside the tabbed menu:</p>
+  <img src="photo_new.jpeg" alt="Photo" style="width:500px;height:500px;">
+  
+  <p>Hi. Welcome to my personal website. I am a software developer/researcher with extensive experience in building
+  end-to-end software systems. I have worked in multi-disciplinary teams and delivered production grade software systems.
+  Currently, I am a researcher at the Australian National University working at the intersection of machine learning and
+  econometrics. I am also co-designing cloud based web services for field experiments. Below, you can find my past industrial 
+  experience, relevant open source contributions, and papers published throughout my career.
+  </p>
+</div>
+  
 
-​
+<div id="Projects" class="w3-container w3-border city" style="display:none">
 
-<div class="tab">
-
-  <button class="tablinks" onclick="openCity(event, 'Home')">Home</button>
-
-  <button class="tablinks" onclick="openCity(event, 'Projects')">Projects</button>
-
-  <button class="tablinks" onclick="openCity(event, 'Publciations')">Publications</button>
-
+  <h4>Open Source Projects</h4>
+  <p>During the past couple of years, I have been involved in multiple hackathons and team events in the field of 
+  machine learning. Some of the projects are listed below
+  <ol>
+    <li><a href="https://github.com/Sudhir22/Patent-Classification">Patent Classification System</a></li>
+    
+  </ol>
+  </p>
+  
 </div>
 
 ​
 
-<div id="Projects" class="tabcontent">
-
-  <h3>London</h3>
-
-  <p>London is the capital city of England.</p>
+<div id="Publications" class="w3-container w3-border city" style="display:none">
 
 </div>
 
-​
-
-<div id="Publications" class="tabcontent">
-
-  <h3>Paris</h3>
-
-  <p>Paris is the capital of France.</p> 
-
-</div>
-
-<div id="Home" class="tabcontent">
-
-<h4>Introduction</h4>
-
-<p>Hi. Welcome to my personal website. I am a software developer/researcher with extensive experience in building
-end-to-end software systems. I have worked in multi-disciplinary teams and delivered production grade software systems.
-Currently, I am a researcher at the Australian National University working at the intersection of machine learning and
-econometrics. I am also co-designing cloud based web services for field experiments. Below, you can find my past industrial 
-experience, relevant open source contributions, and papers published throughout my career.
-</p>
-
-
-<h4>Open Source Projects</h4>
-<p>During the past couple of years, I have been involved in multiple hackathons and team events in the field of 
-machine learning. Some of the projects are listed below
-<ol>
-	<li><a href="https://github.com/Sudhir22/Patent-Classification">Patent Classification System</a></li>
-	
-</ol>
-</p>
-
-</div>
 
 <script>
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+  
 	function openCity(evt, cityName) {
-	  var i, tabcontent, tablinks;
-	  tabcontent = document.getElementsByClassName("tabcontent");
-	  for (i = 0; i < tabcontent.length; i++) {
-		tabcontent[i].style.display = "none";
-	  }
-	  tablinks = document.getElementsByClassName("tablinks");
-	  for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].className = tablinks[i].className.replace(" active", "");
-	  }
-	  document.getElementById(cityName).style.display = "block";
-	  evt.currentTarget.className += " active";
-	}
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
 	</script>
 	   
 </body>
